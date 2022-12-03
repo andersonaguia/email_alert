@@ -10,5 +10,7 @@ export class AlarmEntity {
     device: string;
 
     @Column({ type: Boolean })
-    activated: boolean;
+    activated: string;
+
+    message: string;
 }

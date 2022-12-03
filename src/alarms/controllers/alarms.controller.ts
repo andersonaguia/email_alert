@@ -1,4 +1,4 @@
-import { Post, Body, Controller, HttpException, HttpStatus, Param, Query } from '@nestjs/common';
+import { Post, Body, Controller, HttpException, HttpStatus, Get, Param } from '@nestjs/common';
 import { CreateAlarmDTO } from '../dto/create-alarm.dto';
 import { AlarmEntity } from '../entities/alarm.entity';
 import { AlarmService } from '../service/alarm.service';
@@ -9,14 +9,16 @@ export class AlarmController {
     constructor(private alarmService: AlarmService) { }  
 
     @Post()
-    async insert(@Query() activated: boolean, @Query() device: string) {
-        console.log("Activated: ", activated);
-        console.log("Device: ", device);
+    async insert(@Body() alarm: CreateAlarmDTO): Promise<AlarmEntity> {
         try {
-           // return await this.alarmService.insert(alarm);
-           return "throw new HttpStatus.CREATED;";
+            return await this.alarmService.insert(alarm);
         } catch (err) {
             throw new HttpException({ reason: err }, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @Get()
+    findOne(){
+        return "recebido";
     }
 }

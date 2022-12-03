@@ -23,19 +23,19 @@ export class AlarmService {
                 const body = {
                     body: {
                         addresses: [
-                            "andersonlaguiar@gmail.com", "manutencao@condominiosolartambau.com.br"
+                            "manutencao@condominiosolartambau.com.br", "sindico@condominiosolartambau.com.br", "atendimento@condominiosolartambau.com.br", "manutencao2@condominiosolartambau.com.br", "supervisaosolartambaujp@gmail.com"
                         ],
                         subject: "",
                         text: ""		
                     }
                 }
 
-                if(created.activated){
+                if(created.activated === "1" || created.activated === "true"){
                     body.body.subject = "Alarme no Sistema (não responder)"
-                    body.body.text = `Existe um alarme no sistema ${created.device}. Deve ser verificado imediatamente`
+                    body.body.text = `Existe um alarme no sistema <strong>${created.device}</strong>.<br><br>Detalhes: <strong>${created.message}</strong>`
                 }else{
                     body.body.subject = "Recuperação de Alarme (não responder)"
-                    body.body.text = `O alarme no sistema ${created.device} foi resolvido.`
+                    body.body.text = `O alarme no sistema <strong>${created.device}</strong> foi resolvido.`
                 }
                 await this.emailService.sendingMail(body);
                 resolve(created);
@@ -44,7 +44,7 @@ export class AlarmService {
                     code: error.code,
                     detail: error.detail
                 })
-            }
+            } 
         })
     }
 }

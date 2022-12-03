@@ -14,15 +14,15 @@ export class EmailService {
         //from: 'youremail@domain.com', // sender address
         subject: subject, // Subject line
         text: text, // plaintext body
-        html: `<b>${text}</b>`, // HTML body content
+        html: `${text}`, // HTML body content
       })
       .then((res) => {
         console.log("E-mail enviado com sucesso");
-        console.log(res);
+        //console.log(res);
       })
       .catch((err) => {
         console.log("Falha ao enviar e-mail");
-        console.log(err);
+        //console.log(err);
       });
   }
 }

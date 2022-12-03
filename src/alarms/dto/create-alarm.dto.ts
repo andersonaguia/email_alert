@@ -1,11 +1,15 @@
-import { IsBoolean, IsNotEmpty, IsString } from "class-validator";
+import { IsBooleanString, IsNotEmpty, IsString } from "class-validator";
 
 export class CreateAlarmDTO {    
     @IsString()
     @IsNotEmpty()
-    readonly device: string;
-    
-    @IsBoolean()
+    readonly activated: string;     
+
+    @IsString()
     @IsNotEmpty()
-    readonly activated: boolean;      
+    readonly device: string;
+
+    @IsString()
+    readonly message: string;
+    
 }
