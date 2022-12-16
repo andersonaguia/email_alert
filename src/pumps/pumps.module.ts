@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { databaseProviders } from 'src/core/database/database.providers';
-import { AlarmController } from './controllers/alarms.controller';
-import { AlarmService } from './service/alarm.service';
-import { alarmProviders } from './alarm.providers';
+import { AlarmController } from './controllers/pumps.controller';
 import { EmailService } from './service/email.service';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { ConfigModule } from '@nestjs/config';
+import { PumpsService } from './service/pumps.service';
+import { pumpsProviders } from './pumps.providers';
 
 @Module({
   imports: [  
@@ -32,9 +32,9 @@ import { ConfigModule } from '@nestjs/config';
   controllers: [AlarmController],
   providers: [
     ...databaseProviders,
-    ...alarmProviders,    
-    AlarmService,
+    ...pumpsProviders,    
+    PumpsService,
     EmailService
   ]  
 })
-export class AlarmModule {}
+export class PumpsModule {}
