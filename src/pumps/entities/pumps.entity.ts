@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({ name: "stat_bombas" }) // definindo um nome para tabela
+@Entity({ name: "operation_pumps" }) // definindo um nome para tabela
 export class PumpsEntity {
     // Cria uma coluna primária cujo valor será gerado automaticamente com um valor de incremento automático. 
     @PrimaryGeneratedColumn()
