@@ -25,6 +25,9 @@ export class AlarmService {
                         addresses: [
                             "manutencao@condominiosolartambau.com.br", "sindico@condominiosolartambau.com.br", "atendimento@condominiosolartambau.com.br", "manutencao2@condominiosolartambau.com.br", "supervisaosolartambaujp@gmail.com"
                         ],
+                        // addresses: [
+                        //     "manutencao@condominiosolartambau.com.br"
+                        // ],
                         subject: "",
                         text: ""		
                     }

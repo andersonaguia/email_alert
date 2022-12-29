@@ -10,7 +10,6 @@ export class AlarmController {
 
     @Post()
     async insert(@Body() statePumps: StatusPumpsDTO): Promise<PumpsEntity> {
-        console.log(statePumps);
         try {
             return await this.pumpsService.insert(statePumps);
         } catch (err) {
