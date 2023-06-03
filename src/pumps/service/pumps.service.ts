@@ -16,8 +16,6 @@ export class PumpsService {
         @Inject('CMD_PUMPS_REPOSITORY')
         private cmdPumpsRepository: Repository<CmdPumpsEntity>       
     ) { }  
-    
-    async
 
     async insert(statePumps: StatusPumpsDTO): Promise<PumpsEntity> {
         return new Promise(async (resolve, reject) => {

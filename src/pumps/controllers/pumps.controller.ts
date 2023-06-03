@@ -18,7 +18,7 @@ export class AlarmController {
     }
 
     @Get()
-    async findOne(){
+    async findAll(){
         try{
             const res = await this.pumpsService.findAll();
             return res;
